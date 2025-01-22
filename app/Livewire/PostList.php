@@ -17,6 +17,8 @@ class PostList extends Component
     #[Title('Livewire 3 CRUD - Posts Listing')]
 
     public $searchTerm = null;
+
+    public $perPage = 5;
     public $activePageNumber = 1;
 
     public $sortColumn = 'id';
@@ -40,7 +42,7 @@ class PostList extends Component
     public function fetchPosts() {
         return Post::where('title', 'like', '%' . $this->searchTerm . '%')
         ->orWhere('content', 'like', '%' . $this->searchTerm . '%')
-        ->orderBy($this->sortColumn, $this->sortOrder)->paginate(5);
+        ->orderBy($this->sortColumn, $this->sortOrder)->paginate($this->perPage);
     }
 
     public function render()

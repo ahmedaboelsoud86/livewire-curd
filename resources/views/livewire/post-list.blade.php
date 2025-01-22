@@ -27,12 +27,20 @@
 
     {{-- Table post listing --}}
     <div class="card">
+        {{ $perPage}}
         <div class="card-body mt-4 table-responsive shadow">
 
             {{-- Search Blog Post --}}
             <div class="col-xl-4 ms-auto my-3">
                 <input type="text" wire:model.live.debounce.100ms="searchTerm" class="form-control"
                     placeholder="Search Post.." />
+            </div>
+            <div class="col-xl-4 ms-auto my-3">
+                <select wire:model.change="perPage"  class="form-control">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                </select>
             </div>
 
             <table class="table table-striped">
