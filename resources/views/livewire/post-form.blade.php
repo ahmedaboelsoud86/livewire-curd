@@ -75,7 +75,7 @@
                     @if (!$isView)
                         <div class="card-footer">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">{{ $post ? 'Update' : 'Save' }} </button>
+                                <button type="submit"  wire:loading.attr="disabled" class="btn btn-success">{{ $post ? 'Update' : 'Save' }} </button>
                             </div>
                         </div>
                     @endif
